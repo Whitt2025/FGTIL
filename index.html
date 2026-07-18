@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Inspire Group · Title Division</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:     #0e0e0e;
+  --surface:   #161616;
+  --surface2:  #202020;
+  --rule:      #2e2e2e;
+  --white:     #ffffff;
+  --off:       #a0a0a0;
+  --dim:       #606060;
+  --gold:      #b8973a;
+  --gold-lt:   #d4b96a;
+  --gold-dim:  rgba(184,151,58,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── FADE IN ON SCROLL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(14,14,14,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+.nav-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--rule);
+}
+.nav-partner {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.nav-cta {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  padding: 8px 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 64px 80px;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 900px;
+  margin-bottom: 36px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--off);
+  max-width: 560px;
+  margin-bottom: 52px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 16px 36px;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: 1px solid var(--gold);
+}
+.btn-primary:hover { background: var(--gold-lt); }
+.btn-secondary {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: transparent;
+  padding: 16px 36px;
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--white);
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  right: 64px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-scroll::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--dim);
+}
+
+/* ── GOLD RULE ── */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  margin: 0;
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding: 100px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-eyebrow {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.section-headline em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+.section-body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--off);
+  max-width: 600px;
+}
+
+/* ── CONCEPT SECTION ── */
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 64px;
+  border: 1px solid var(--rule);
+}
+.concept-cell {
+  padding: 48px 44px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.concept-cell:last-child { border-right: none; }
+.concept-cell::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+.concept-cell-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.concept-cell-body {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--off);
+}
+
+/* ── STRUCTURE SECTION ── */
+.structure-section {
+  background: var(--surface);
+}
+.structure-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 64px;
+}
+.tier-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tier {
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.tier:last-child { border-bottom: 1px solid var(--rule); }
+.tier-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-top: 3px;
+}
+.tier-content {}
+.tier-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.tier-title.gold { color: var(--gold-lt); }
+.tier-desc {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--off);
+  line-height: 1.65;
+}
+.tier-connector {
+  width: 1px;
+  height: 20px;
+  background: var(--rule);
+  margin-left: 120px;
+}
+.structure-right {}
+.structure-right .section-body { margin-bottom: 32px; }
+.fact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.fact {
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+.fact:last-child { border-bottom: 1px solid var(--rule); }
+.fact-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--gold-lt);
+  flex-shrink: 0;
+  width: 80px;
+  line-height: 1;
+}
+.fact-label {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--off);
+  line-height: 1.6;
+}
+
+/* ── B SHARE SECTION ── */
+.bshare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  margin-top: 64px;
+  border: 1px solid var(--rule);
+}
+.bshare-cell {
+  padding: 40px 36px;
+  border-right: 1px solid var(--rule);
+}
+.bshare-cell:last-child { border-right: none; }
+.bshare-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.bshare-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.bshare-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--off);
+}
+
+/* ── WHY SECTION ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+}
+.why-item {
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+}
+.why-item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.why-item-body {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--off);
+  line-height: 1.7;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--surface);
+  text-align: center;
+  padding: 120px 64px;
+}
+.cta-section .section-eyebrow { justify-content: center; }
+.cta-section .section-headline {
+  margin: 0 auto 20px;
+  max-width: 640px;
+}
+.cta-section .section-body {
+  margin: 0 auto 60px;
+  text-align: center;
+}
+.cta-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-card {
+  border: 1px solid var(--rule);
+  padding: 48px 40px;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+.cta-card:hover { border-color: var(--gold); }
+.cta-card-eyebrow {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.cta-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.cta-card-body {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--off);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.cta-card-btn {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  transition: background 0.2s, color 0.2s;
+}
+.cta-card-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+.cta-card.primary-card {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+}
+.cta-card.primary-card .cta-card-btn {
+  background: var(--gold);
+  color: var(--black);
+}
+.cta-card.primary-card .cta-card-btn:hover {
+  background: var(--gold-lt);
+  border-color: var(--gold-lt);
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  padding: 32px 64px;
+  border-top: 1px solid var(--rule);
+}
+.disclaimer p {
+  font-size: 10px;
+  color: var(--dim);
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 64px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--off);
+  letter-spacing: 0.04em;
+}
+.footer-partner {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.footer-right {
+  font-size: 10px;
+  color: var(--dim);
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 18px 28px; }
+  .hero { padding: 0 28px 64px; }
+  section { padding: 72px 28px; }
+  .concept-grid { grid-template-columns: 1fr; }
+  .concept-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .structure-layout { grid-template-columns: 1fr; gap: 48px; }
+  .bshare-grid { grid-template-columns: 1fr; }
+  .bshare-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .why-grid { grid-template-columns: 1fr; }
+  .cta-cards { grid-template-columns: 1fr; }
+  .cta-section { padding: 72px 28px; }
+  .disclaimer { padding: 28px; }
+  footer { padding: 32px 28px; flex-direction: column; align-items: flex-start; }
+  .hero-scroll { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-name">The Inspire Group</div>
+    <div class="nav-divider"></div>
+    <div class="nav-partner">Federal Guardian Title</div>
+  </div>
+  <a href="#register" class="nav-cta">Reserve Your Seat</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Title Division · Illinois JV Partnership Program</div>
+  <h1 class="hero-headline">Your brokerage.<br><em>Your title company.</em><br>Our operation.</h1>
+  <p class="hero-sub">A joint venture platform that lets brokerage owners hold equity in a licensed Illinois title company — under their own brand, without a single hire, compliance burden, or operational responsibility.</p>
+  <div class="hero-actions">
+    <a href="#register" class="btn-primary">Reserve Your Seat</a>
+    <a href="#conversation" class="btn-secondary">Request a Conversation</a>
+  </div>
+  <div class="hero-scroll">Scroll to learn more</div>
+</div>
+<div class="gold-rule"></div>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="reveal">
+    <div class="section-eyebrow">The Concept</div>
+    <h2 class="section-headline">Built for owners who build<br><em>real businesses.</em></h2>
+    <p class="section-body">Most brokerage owners understand that title is a significant revenue stream — and that it's leaving their office on every transaction. The question has always been how to capture it without building an entirely new operation. We solved that problem.</p>
+  </div>
+  <div class="concept-grid reveal">
+    <div class="concept-cell">
+      <div class="concept-cell-title">What We Bring</div>
+      <div class="concept-cell-body">The Inspire Group and Federal Guardian Title operate the complete title platform — underwriter relationship, compliance framework, staffing, licensing, and back-office. The infrastructure is already built. You attach to it.</div>
+    </div>
+    <div class="concept-cell">
+      <div class="concept-cell-title">What You Bring</div>
+      <div class="concept-cell-body">Your brand. Your brokerage. A culture where agents understand the value of the affiliated title entity and choose to use it. You don't run operations. You don't manage staff. You lead your office — and the entity earns.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section id="structure" class="structure-section">
+  <div class="reveal">
+    <div class="section-eyebrow">The Structure</div>
+    <h2 class="section-headline">Three tiers.<br><em>One clean platform.</em></h2>
+  </div>
+  <div class="structure-layout">
+    <div class="tier-stack reveal">
+      <div class="tier">
+        <div class="tier-label">Platform</div>
+        <div class="tier-content">
+          <div class="tier-title gold">IL Master LLC</div>
+          <div class="tier-desc">The Inspire Group and Federal Guardian Title. Owns and operates the platform. Manages all underwriting, compliance, staffing, and back-office across every JV entity.</div>
+        </div>
+      </div>
+      <div class="tier-connector"></div>
+      <div class="tier">
+        <div class="tier-label">JV Entity</div>
+        <div class="tier-content">
+          <div class="tier-title">Your Brokerage Title Co.</div>
+          <div class="tier-desc">A dedicated, licensed Illinois title entity carrying your brand. You hold 49% Class A equity. IL Master holds 51% and runs day-to-day operations. Distributions flow to equity holders on a periodic basis.</div>
+        </div>
+      </div>
+      <div class="tier-connector"></div>
+      <div class="tier">
+        <div class="tier-label">Agent Layer</div>
+        <div class="tier-content">
+          <div class="tier-title">Class B Equity Pool</div>
+          <div class="tier-desc">Your top agents may purchase a 1% equity position in the entity for a nominal one-time cost. Participation is entirely voluntary — agents who own a stake make informed choices about where they close.</div>
+        </div>
+      </div>
+    </div>
+    <div class="structure-right reveal">
+      <div class="section-eyebrow">Ownership at a Glance</div>
+      <p class="section-body">The equity split is fixed at formation and does not change with volume, B share activity, or time. This is ownership — not a revenue share arrangement.</p>
+      <div class="fact-list">
+        <div class="fact">
+          <div class="fact-value">51/49</div>
+          <div class="fact-label">Class A equity split — IL Master LLC / Your BTC entity. Fixed at formation.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-value">49%</div>
+          <div class="fact-label">Your ownership position. Locked, non-dilutable, non-negotiable.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-value">20</div>
+          <div class="fact-label">Maximum Class B agent positions per entity, at 1% of the pool each.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-value">$99</div>
+          <div class="fact-label">One-time agent buy-in per Class B position. The simplest retention tool in real estate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B SHARE -->
+<section id="bshare">
+  <div class="reveal">
+    <div class="section-eyebrow">The Agent Equity Pool</div>
+    <h2 class="section-headline">Turn your best agents into<br><em>invested owners.</em></h2>
+    <p class="section-body">The Class B structure is an optional layer inside each JV entity. It's one of the more elegant tools in the platform — simple to explain, powerful in practice.</p>
+  </div>
+  <div class="bshare-grid reveal">
+    <div class="bshare-cell">
+      <div class="bshare-number">$99</div>
+      <div class="bshare-title">One-Time Entry</div>
+      <div class="bshare-body">Each Class B position costs an agent $99. Once. No recurring fees, no ongoing commitment. A nominal stake that creates a real ownership mindset.</div>
+    </div>
+    <div class="bshare-cell">
+      <div class="bshare-number">1%</div>
+      <div class="bshare-title">Per Position</div>
+      <div class="bshare-body">Each agent holds exactly 1% of the Class B pool. Up to 20 positions available per entity. Distributions are quarterly and based on net entity performance — not per-transaction payments.</div>
+    </div>
+    <div class="bshare-cell">
+      <div class="bshare-number">100%</div>
+      <div class="bshare-title">Unallocated to You</div>
+      <div class="bshare-body">Any unsold Class B position flows entirely to you, the JV Partner — not back into the shared pool with IL Master. Every unsold share adds directly to your quarterly distribution.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="structure-section">
+  <div class="reveal">
+    <div class="section-eyebrow">Why This Works</div>
+    <h2 class="section-headline">Built around ownership,<br><em>not obligation.</em></h2>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <div class="why-item-title">No operational burden</div>
+      <div class="why-item-body">You hold equity. We run the company. There is no staffing, no licensing management, no compliance monitoring on your end. The platform exists so you don't have to build one.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-title">Your brand, your entity</div>
+      <div class="why-item-body">This isn't a referral to someone else's title company. It's your company — with your name on it — operating inside a proven platform infrastructure. That distinction matters to your agents and your clients.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-title">Periodic distributions, not per-closing fees</div>
+      <div class="why-item-body">Distributions are based on net entity revenue and paid quarterly. This is an equity ownership arrangement — structured and compliant — not a transaction-based referral program.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-title">Designed to scale</div>
+      <div class="why-item-body">Title is the foundation. The platform is built to extend to mortgage and additional ancillary profit centers as the partnership matures. This is a platform, not a product.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="register" class="cta-section">
+  <div class="reveal">
+    <div class="section-eyebrow">Take the Next Step</div>
+    <h2 class="section-headline">Two ways<br><em>to go deeper.</em></h2>
+    <p class="section-body">We're hosting a small gathering for brokerage owners and team leaders — content-forward, not a sales event. Or, if you'd rather talk first, we're available for a direct conversation.</p>
+  </div>
+  <div class="cta-cards reveal">
+    <div class="cta-card primary-card">
+      <div class="cta-card-eyebrow">Upcoming Event</div>
+      <div class="cta-card-title">Reserve Your Seat</div>
+      <div class="cta-card-body">Join a small, curated group of brokerage owners for an evening of useful content and an introduction to the platform. 30–40 people. No pressure. Something worth your time regardless of outcome.</div>
+      <a href="mailto:mark@theinspiregroupre.com?subject=Event Registration — TIG Title Division" class="cta-card-btn">Register for the Event</a>
+    </div>
+    <div class="cta-card" id="conversation">
+      <div class="cta-card-eyebrow">Direct Conversation</div>
+      <div class="cta-card-title">Talk to Mark First</div>
+      <div class="cta-card-body">Prefer to ask questions before committing to an event? Reach out directly. A 20-minute call is enough to know whether this is worth exploring further.</div>
+      <a href="mailto:mark@theinspiregroupre.com?subject=Conversation Request — TIG Title Division" class="cta-card-btn">Request a Conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>Distribution percentages described on this page do not represent, alter, or replace the fixed Class A equity ownership of 51% IL Master LLC / 49% JV Partner. Distributions are quarterly and based on net entity revenue — not per-closing payments or referral compensation. Agent participation in the Class B equity pool is entirely voluntary. This page is for illustrative and discussion purposes only and does not constitute an offer of securities, a guarantee of future performance, legal or financial advice, or a solicitation of referrals of settlement service business. The Inspire Group · Title Division is a platform operating in Illinois. Consult qualified legal and financial counsel before entering any joint venture arrangement.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Inspire Group</div>
+    <div class="footer-partner">In partnership with Federal Guardian Title</div>
+  </div>
+  <div class="footer-right">
+    Title Division · Illinois<br>
+    Confidential — For Discussion Purposes Only
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
