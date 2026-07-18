@@ -32,7 +32,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── FADE IN ON SCROLL ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -43,12 +42,10 @@ body {
   transform: translateY(0);
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 20px 64px;
   display: flex;
@@ -58,492 +55,133 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rule);
 }
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  color: var(--white);
-}
-.nav-divider {
-  width: 1px;
-  height: 18px;
-  background: var(--rule);
-}
-.nav-partner {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.nav-cta {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  border: 1px solid var(--gold);
-  padding: 8px 20px;
-  transition: background 0.2s, color 0.2s;
-}
-.nav-cta:hover {
-  background: var(--gold);
-  color: var(--black);
-}
+.nav-brand { display: flex; align-items: center; gap: 20px; }
+.nav-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; letter-spacing: 0.05em; color: var(--white); }
+.nav-divider { width: 1px; height: 18px; background: var(--rule); }
+.nav-partner { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.nav-cta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; transition: background 0.2s, color 0.2s; }
+.nav-cta:hover { background: var(--gold); color: var(--black); }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 64px 80px;
   position: relative;
   border-bottom: 1px solid var(--rule);
 }
-.hero-eyebrow {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 28px;
-}
-.hero-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  max-width: 900px;
-  margin-bottom: 36px;
-}
-.hero-headline em {
-  font-style: italic;
-  color: var(--gold-lt);
-}
-.hero-sub {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--off);
-  max-width: 560px;
-  margin-bottom: 52px;
-}
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  padding: 16px 36px;
-  text-decoration: none;
-  transition: background 0.2s;
-  border: 1px solid var(--gold);
-}
+.hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 96px); font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; color: var(--white); max-width: 900px; margin-bottom: 36px; }
+.hero-headline em { font-style: italic; color: var(--gold-lt); }
+.hero-sub { font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--off); max-width: 560px; margin-bottom: 52px; }
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 16px 36px; text-decoration: none; transition: background 0.2s; border: 1px solid var(--gold); }
 .btn-primary:hover { background: var(--gold-lt); }
-.btn-secondary {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: transparent;
-  padding: 16px 36px;
-  text-decoration: none;
-  border: 1px solid var(--rule);
-  transition: border-color 0.2s, color 0.2s;
-}
-.btn-secondary:hover {
-  border-color: var(--white);
-}
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  right: 64px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--dim);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero-scroll::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--dim);
-}
+.btn-secondary { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: transparent; padding: 16px 36px; text-decoration: none; border: 1px solid var(--rule); transition: border-color 0.2s, color 0.2s; }
+.btn-secondary:hover { border-color: var(--white); }
+.hero-scroll { position: absolute; bottom: 32px; right: 64px; font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); display: flex; align-items: center; gap: 10px; }
+.hero-scroll::before { content: ''; display: block; width: 32px; height: 1px; background: var(--dim); }
 
-/* ── GOLD RULE ── */
-.gold-rule {
-  height: 1px;
-  background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
-  margin: 0;
-}
+.gold-rule { height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 60%); }
 
-/* ── SECTION BASE ── */
-section {
-  padding: 100px 64px;
-  border-bottom: 1px solid var(--rule);
-}
+/* SECTIONS */
+section { padding: 100px 64px; border-bottom: 1px solid var(--rule); }
+.section-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.section-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 300; line-height: 1.15; color: var(--white); margin-bottom: 20px; }
+.section-headline em { font-style: italic; color: var(--gold-lt); }
+.section-body { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--off); max-width: 600px; }
 
-.section-eyebrow {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.section-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-.section-headline em {
-  font-style: italic;
-  color: var(--gold-lt);
-}
-.section-body {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--off);
-  max-width: 600px;
-}
-
-/* ── CONCEPT SECTION ── */
-.concept-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  margin-top: 64px;
-  border: 1px solid var(--rule);
-}
-.concept-cell {
-  padding: 48px 44px;
-  border-right: 1px solid var(--rule);
-  position: relative;
-}
+/* CONCEPT */
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 64px; border: 1px solid var(--rule); }
+.concept-cell { padding: 48px 44px; border-right: 1px solid var(--rule); }
 .concept-cell:last-child { border-right: none; }
-.concept-cell::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--gold);
-  margin-bottom: 28px;
-}
-.concept-cell-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-.concept-cell-body {
-  font-size: 13.5px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--off);
-}
+.concept-cell::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+.concept-cell-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
+.concept-cell-body { font-size: 13.5px; font-weight: 300; line-height: 1.75; color: var(--off); }
 
-/* ── STRUCTURE SECTION ── */
-.structure-section {
-  background: var(--surface);
-}
-.structure-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  margin-top: 64px;
-}
-.tier-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.tier {
-  padding: 28px 0;
-  border-top: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 24px;
-  align-items: start;
-}
+/* STRUCTURE */
+.structure-section { background: var(--surface); }
+.structure-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 64px; }
+.tier-stack { display: flex; flex-direction: column; gap: 0; }
+.tier { padding: 28px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: start; }
 .tier:last-child { border-bottom: 1px solid var(--rule); }
-.tier-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--dim);
-  padding-top: 3px;
-}
-.tier-content {}
-.tier-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
+.tier-label { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); padding-top: 3px; }
+.tier-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
 .tier-title.gold { color: var(--gold-lt); }
-.tier-desc {
-  font-size: 12.5px;
-  font-weight: 300;
-  color: var(--off);
-  line-height: 1.65;
-}
-.tier-connector {
-  width: 1px;
-  height: 20px;
-  background: var(--rule);
-  margin-left: 120px;
-}
-.structure-right {}
-.structure-right .section-body { margin-bottom: 32px; }
-.fact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.fact {
-  padding: 20px 0;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  gap: 20px;
-  align-items: baseline;
-}
+.tier-desc { font-size: 12.5px; font-weight: 300; color: var(--off); line-height: 1.65; }
+.tier-connector { width: 1px; height: 20px; background: var(--rule); margin-left: 120px; }
+.fact-list { display: flex; flex-direction: column; gap: 0; }
+.fact { padding: 20px 0; border-top: 1px solid var(--rule); display: flex; gap: 20px; align-items: baseline; }
 .fact:last-child { border-bottom: 1px solid var(--rule); }
-.fact-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 300;
-  color: var(--gold-lt);
-  flex-shrink: 0;
-  width: 80px;
-  line-height: 1;
-}
-.fact-label {
-  font-size: 12.5px;
-  font-weight: 300;
-  color: var(--off);
-  line-height: 1.6;
-}
+.fact-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--gold-lt); flex-shrink: 0; width: 80px; line-height: 1; }
+.fact-label { font-size: 12.5px; font-weight: 300; color: var(--off); line-height: 1.6; }
 
-/* ── B SHARE SECTION ── */
-.bshare-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0;
-  margin-top: 64px;
-  border: 1px solid var(--rule);
-}
-.bshare-cell {
-  padding: 40px 36px;
-  border-right: 1px solid var(--rule);
-}
+/* B SHARE */
+.bshare-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: 64px; border: 1px solid var(--rule); }
+.bshare-cell { padding: 40px 36px; border-right: 1px solid var(--rule); }
 .bshare-cell:last-child { border-right: none; }
-.bshare-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 12px;
-}
-.bshare-title {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-.bshare-body {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--off);
-}
+.bshare-number { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 12px; }
+.bshare-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.bshare-body { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--off); }
 
-/* ── WHY SECTION ── */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 64px;
-}
-.why-item {
-  padding: 36px 0;
-  border-top: 1px solid var(--rule);
-}
-.why-item-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-.why-item-body {
-  font-size: 13.5px;
-  font-weight: 300;
-  color: var(--off);
-  line-height: 1.7;
-}
+/* WHY */
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 64px; }
+.why-item { padding: 36px 0; border-top: 1px solid var(--rule); }
+.why-item-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+.why-item-body { font-size: 13.5px; font-weight: 300; color: var(--off); line-height: 1.7; }
 
-/* ── CTA SECTION ── */
-.cta-section {
-  background: var(--surface);
-  text-align: center;
-  padding: 120px 64px;
-}
-.cta-section .section-eyebrow { justify-content: center; }
-.cta-section .section-headline {
-  margin: 0 auto 20px;
-  max-width: 640px;
-}
-.cta-section .section-body {
-  margin: 0 auto 60px;
-  text-align: center;
-}
-.cta-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.cta-card {
-  border: 1px solid var(--rule);
-  padding: 48px 40px;
-  text-align: left;
-  transition: border-color 0.2s;
-}
+/* CTA SECTION */
+.cta-section { background: var(--surface); text-align: center; padding: 120px 64px; }
+.cta-section .section-headline { margin: 0 auto 20px; max-width: 640px; }
+.cta-section .section-body { margin: 0 auto 60px; text-align: center; }
+.cta-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+.cta-card { border: 1px solid var(--rule); padding: 48px 40px; text-align: left; transition: border-color 0.2s; }
 .cta-card:hover { border-color: var(--gold); }
-.cta-card-eyebrow {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-.cta-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 600;
+.cta-card-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.cta-card-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+.cta-card-body { font-size: 13px; font-weight: 300; color: var(--off); line-height: 1.7; margin-bottom: 28px; }
+.cta-card.primary-card { background: var(--gold-dim); border-color: var(--gold); }
+
+/* FORMS */
+.reg-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.form-group input,
+.form-group select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--rule);
   color: var(--white);
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-.cta-card-body {
+  font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 300;
-  color: var(--off);
-  line-height: 1.7;
-  margin-bottom: 28px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
 }
-.cta-card-btn {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 13px 28px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  transition: background 0.2s, color 0.2s;
-}
-.cta-card-btn:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-.cta-card.primary-card {
-  background: var(--gold-dim);
-  border-color: var(--gold);
-}
-.cta-card.primary-card .cta-card-btn {
-  background: var(--gold);
-  color: var(--black);
-}
-.cta-card.primary-card .cta-card-btn:hover {
-  background: var(--gold-lt);
-  border-color: var(--gold-lt);
-}
+.form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23606060' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.form-group select option { background: #1a1a1a; color: var(--white); }
+.form-group input::placeholder { color: var(--dim); }
+.form-group input:focus,
+.form-group select:focus { border-color: var(--gold); background: rgba(184,151,58,0.06); }
+.form-submit-primary { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; padding: 14px 28px; background: var(--gold); color: var(--black); border: 1px solid var(--gold); transition: background 0.2s; }
+.form-submit-primary:hover { background: var(--gold-lt); }
+.form-submit-secondary { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; padding: 14px 28px; background: transparent; color: var(--gold); border: 1px solid var(--gold); transition: background 0.2s, color 0.2s; }
+.form-submit-secondary:hover { background: var(--gold); color: var(--black); }
+.form-msg { display: none; margin-top: 14px; font-size: 12px; color: var(--gold-lt); line-height: 1.6; }
 
-/* ── DISCLAIMER ── */
-.disclaimer {
-  padding: 32px 64px;
-  border-top: 1px solid var(--rule);
-}
-.disclaimer p {
-  font-size: 10px;
-  color: var(--dim);
-  line-height: 1.7;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
+/* DISCLAIMER + FOOTER */
+.disclaimer { padding: 32px 64px; border-top: 1px solid var(--rule); }
+.disclaimer p { font-size: 10px; color: var(--dim); line-height: 1.7; max-width: 900px; margin: 0 auto; text-align: center; }
+footer { padding: 40px 64px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300; color: var(--off); letter-spacing: 0.04em; }
+.footer-partner { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.footer-right { font-size: 10px; color: var(--dim); text-align: right; line-height: 1.8; }
 
-/* ── FOOTER ── */
-footer {
-  padding: 40px 64px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--off);
-  letter-spacing: 0.04em;
-}
-.footer-partner {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dim);
-}
-.footer-right {
-  font-size: 10px;
-  color: var(--dim);
-  text-align: right;
-  line-height: 1.8;
-}
-
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 18px 28px; }
   .hero { padding: 0 28px 64px; }
@@ -559,8 +197,8 @@ footer {
   .disclaimer { padding: 28px; }
   footer { padding: 32px 28px; flex-direction: column; align-items: flex-start; }
   .hero-scroll { display: none; }
+  .form-row { grid-template-columns: 1fr; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
@@ -646,22 +284,10 @@ footer {
       <div class="section-eyebrow">Ownership at a Glance</div>
       <p class="section-body">The equity split is fixed at formation and does not change with volume, B share activity, or time. This is ownership — not a revenue share arrangement.</p>
       <div class="fact-list">
-        <div class="fact">
-          <div class="fact-value">51/49</div>
-          <div class="fact-label">Class A equity split — IL Master LLC / Your BTC entity. Fixed at formation.</div>
-        </div>
-        <div class="fact">
-          <div class="fact-value">49%</div>
-          <div class="fact-label">Your ownership position. Locked, non-dilutable, non-negotiable.</div>
-        </div>
-        <div class="fact">
-          <div class="fact-value">20</div>
-          <div class="fact-label">Maximum Class B agent positions per entity, at 1% of the pool each.</div>
-        </div>
-        <div class="fact">
-          <div class="fact-value">$99</div>
-          <div class="fact-label">One-time agent buy-in per Class B position. The simplest retention tool in real estate.</div>
-        </div>
+        <div class="fact"><div class="fact-value">51/49</div><div class="fact-label">Class A equity split — IL Master LLC / Your BTC entity. Fixed at formation.</div></div>
+        <div class="fact"><div class="fact-value">49%</div><div class="fact-label">Your ownership position. Locked, non-dilutable, non-negotiable.</div></div>
+        <div class="fact"><div class="fact-value">20</div><div class="fact-label">Maximum Class B agent positions per entity, at 1% of the pool each.</div></div>
+        <div class="fact"><div class="fact-value">$99</div><div class="fact-label">One-time agent buy-in per Class B position. The simplest retention tool in real estate.</div></div>
       </div>
     </div>
   </div>
@@ -727,18 +353,82 @@ footer {
     <p class="section-body">We're hosting a small gathering for brokerage owners and team leaders — content-forward, not a sales event. Or, if you'd rather talk first, we're available for a direct conversation.</p>
   </div>
   <div class="cta-cards reveal">
+
+    <!-- REGISTRATION FORM -->
     <div class="cta-card primary-card">
       <div class="cta-card-eyebrow">Upcoming Event</div>
       <div class="cta-card-title">Reserve Your Seat</div>
       <div class="cta-card-body">Join a small, curated group of brokerage owners for an evening of useful content and an introduction to the platform. 30–40 people. No pressure. Something worth your time regardless of outcome.</div>
-      <a href="mailto:mark@theinspiregroupre.com?subject=Event Registration — TIG Title Division" class="cta-card-btn">Register for the Event</a>
+      <form id="reg-form" class="reg-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-fname">First Name</label>
+            <input type="text" id="r-fname" required placeholder="First">
+          </div>
+          <div class="form-group">
+            <label for="r-lname">Last Name</label>
+            <input type="text" id="r-lname" required placeholder="Last">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="r-email">Email Address</label>
+          <input type="email" id="r-email" required placeholder="you@yourbrokerage.com">
+        </div>
+        <div class="form-group">
+          <label for="r-company">Team / Brokerage Name</label>
+          <input type="text" id="r-company" required placeholder="Your brokerage or team">
+        </div>
+        <div class="form-group">
+          <label for="r-phone">Phone Number</label>
+          <input type="tel" id="r-phone" required placeholder="(000) 000-0000">
+        </div>
+        <button type="submit" class="form-submit-primary">Reserve My Seat</button>
+        <div id="reg-msg" class="form-msg"></div>
+      </form>
     </div>
+
+    <!-- CONVERSATION FORM -->
     <div class="cta-card" id="conversation">
       <div class="cta-card-eyebrow">Direct Conversation</div>
       <div class="cta-card-title">Talk to Mark First</div>
-      <div class="cta-card-body">Prefer to ask questions before committing to an event? Reach out directly. A 20-minute call is enough to know whether this is worth exploring further.</div>
-      <a href="mailto:mark@theinspiregroupre.com?subject=Conversation Request — TIG Title Division" class="cta-card-btn">Request a Conversation</a>
+      <div class="cta-card-body">Prefer to ask questions before committing to an event? A 20-minute call is enough to know whether this is worth exploring further.</div>
+      <form id="conv-form" class="reg-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-fname">First Name</label>
+            <input type="text" id="c-fname" required placeholder="First">
+          </div>
+          <div class="form-group">
+            <label for="c-lname">Last Name</label>
+            <input type="text" id="c-lname" required placeholder="Last">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email Address</label>
+          <input type="email" id="c-email" required placeholder="you@yourbrokerage.com">
+        </div>
+        <div class="form-group">
+          <label for="c-company">Team / Brokerage Name</label>
+          <input type="text" id="c-company" required placeholder="Your brokerage or team">
+        </div>
+        <div class="form-group">
+          <label for="c-phone">Phone Number</label>
+          <input type="tel" id="c-phone" required placeholder="(000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="c-time">Best Time to Reach You</label>
+          <select id="c-time" required>
+            <option value="" disabled selected>Select a time</option>
+            <option>Morning (8am–12pm)</option>
+            <option>Afternoon (12pm–5pm)</option>
+            <option>Evening (5pm–8pm)</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit-secondary">Request a Conversation</button>
+        <div id="conv-msg" class="form-msg"></div>
+      </form>
     </div>
+
   </div>
 </section>
 
@@ -760,17 +450,78 @@ footer {
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+// ── REPLACE THIS URL after deploying your Apps Script ──
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWFe82-mOxkNz6--HttZyybpuLuaeMvYDK2dZ6WQQwLKo1oKvqr8ykIm-LPPw1OXWK/exec';
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Submit helper
+async function submitForm(payload, btnEl, msgEl, successText) {
+  btnEl.disabled = true;
+  btnEl.textContent = 'Submitting...';
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+    msgEl.style.display = 'block';
+    msgEl.textContent = successText;
+    btnEl.closest('form').reset();
+  } catch(err) {
+    msgEl.style.display = 'block';
+    msgEl.textContent = 'Something went wrong. Please call us directly.';
+  } finally {
+    btnEl.disabled = false;
+    btnEl.textContent = payload.formType === 'registration' ? 'Reserve My Seat' : 'Request a Conversation';
+  }
+}
+
+// Registration form
+document.getElementById('reg-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitForm({
+    formType:  'registration',
+    firstName: document.getElementById('r-fname').value.trim(),
+    lastName:  document.getElementById('r-lname').value.trim(),
+    email:     document.getElementById('r-email').value.trim(),
+    company:   document.getElementById('r-company').value.trim(),
+    phone:     document.getElementById('r-phone').value.trim()
+  },
+  this.querySelector('button[type=submit]'),
+  document.getElementById('reg-msg'),
+  "You're registered. A confirmation is on its way. We look forward to seeing you there."
+  );
+});
+
+// Conversation form
+document.getElementById('conv-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitForm({
+    formType:  'conversation',
+    firstName: document.getElementById('c-fname').value.trim(),
+    lastName:  document.getElementById('c-lname').value.trim(),
+    email:     document.getElementById('c-email').value.trim(),
+    company:   document.getElementById('c-company').value.trim(),
+    phone:     document.getElementById('c-phone').value.trim(),
+    bestTime:  document.getElementById('c-time').value
+  },
+  this.querySelector('button[type=submit]'),
+  document.getElementById('conv-msg'),
+  "Got it. Mark will be in touch shortly."
+  );
+});
 </script>
 
 </body>
